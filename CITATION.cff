@@ -9,8 +9,8 @@ date-released: 2026-11-04
 version: "2.0"
 license: CC-BY-4.0
 doi: 10.5281/zenodo.23934515
-repository-code: "https://github.com/chrisb4096-alt/expander-spanning-trees"
-url: "https://github.com/chrisb4096-alt/expander-spanning-trees"
+repository-code: "https://github.com/chrisblaschke/expander-spanning-trees"
+url: "https://github.com/chrisblaschke/expander-spanning-trees"
 keywords:
   - probabilistic circuits
   - uniform spanning tree

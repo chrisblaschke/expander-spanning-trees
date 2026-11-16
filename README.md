@@ -20,7 +20,7 @@ Let $G$ be a 2-connected graph with $N$ vertices, $M$ edges, maximum degree at m
 
 ## What this paper does not claim
 
-- The information-theoretic tools are known: the adaptive chain rule is a case of an exercise in Polyanskiy and Wu, and the optimized affinity as a matrix norm is due to Lapidoth and Pfister. The circuit reduction is from [our dimer paper](https://github.com/chrisb4096-alt/square-grid-dimers). Several elementary lemmas may be known; the paper says which.
+- The information-theoretic tools are known: the adaptive chain rule is a case of an exercise in Polyanskiy and Wu, and the optimized affinity as a matrix norm is due to Lapidoth and Pfister. The circuit reduction is from [our dimer paper](https://github.com/chrisblaschke/square-grid-dimers). Several elementary lemmas may be known; the paper says which.
 - Exponential exact lower bounds for the spanning-tree polynomial and the uniform spanning tree of the complete graph were known before (Jerrum–Snir, Martens–Medabalimi, Jukna–Seiwert, Chattopadhyay et al. for directed expanders). The literature search was targeted, not exhaustive; the border-complexity literature was not checked.
 - The constants are tiny, so the bounds only bite for very large graphs. Some unstructured-signed constants are astronomically small, and asymptotic only.
 - General decomposable circuits with subtraction are open; for exact representation the question is equivalent to the syntactically multilinear complexity of the spanning-tree polynomial. Expanders with $h\to0$ (beyond the grid) and the conjectured $1/\mathrm{poly}(D,1/h)$ constant are open.
