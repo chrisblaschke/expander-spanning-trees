@@ -1,4 +1,4 @@
-# Adversarial review of R3: complete-graph spanning trees
+# AI-assisted internal review of R3: complete-graph spanning trees
 
 Reviewed November 4, 2026 (America/Chicago).
 
@@ -13,13 +13,13 @@ Reviewed November 4, 2026 (America/Chicago).
 - MINOR: F2, upper-circuit size counter; F3, unsupported inference from edit distance to TV in the literature table.
 - Score for the result as stated: **8/10**. With F1 repaired, the main proof is convincing. I found no prior fixed-TV result that makes this claim redundant, but the literature check was a search, not a novelty certificate.
 
-I did not modify the claimed proof, its programs, or anything under `/home/chris/code/eth-research/notes/paper-ust/`.
+I did not modify the claimed proof, its programs, or anything under `paper/`.
 
 ## Findings and concrete fixes
 
 ### F1. MAJOR: Corollary K does not state the arity restriction
 
-The opening statement quantifies over every smooth decomposable nonnegative PC. Under the model in `/home/chris/code/eth-research/notes/paper-ust/sec-prelim.tex`, leaves may be nonnegative functions on several variables, with arity a. The cited balanced-decomposition lemma in `/home/chris/code/eth-research/notes/paper-ust/sec-tools.tex` requires **a <= 2M/3**. Its circuit-reduction corollary explicitly inherits this hypothesis.
+The opening statement quantifies over every smooth decomposable nonnegative PC. Under the model in `paper/sec-prelim.tex`, leaves may be nonnegative functions on several variables, with arity a. The cited balanced-decomposition lemma in `paper/sec-tools.tex` requires **a <= 2M/3**. Its circuit-reduction corollary explicitly inherits this hypothesis.
 
 Without any restriction, take one leaf whose function is the UST probability mass function on all M variables. Smoothness, decomposability and determinism are vacuous; its size is one. For n = 3600 and delta = 1, the displayed lower bound would require size at least e/2 > 1. This is a concrete counterexample to the unrestricted wording.
 
@@ -29,7 +29,7 @@ The note's later “What is not covered” paragraph recognizes the exclusion ab
 
 ### F2. MINOR: the upper-circuit counter omits a multiplicity
 
-In `/home/chris/code/eth-research/toy/r3/complete/upper.py`, `children` includes the t choices of u in S', but `cut_lits` does not:
+In `upper.py` (unpublished working file), `children` includes the t choices of u in S', but `cut_lits` does not:
 
 ```python
 children = sum(comb(s - 2, t - 1) * t for t in range(1, s))
@@ -269,9 +269,9 @@ sum_s C(n,s) s^4 2^s = O(n^4 3^n),
 
 which proves the stated size upper bound independently of the incorrect finite-size counter. Consequently 2^{Theta(n)} is the right scale for fixed positive overlap, or 2^{Theta(sqrt(M))} in the number of edge variables.
 
-## Independent numerical checks
+## AI-assisted internal numerical checks
 
-I wrote fresh enumeration, conditioning and determinant code. I did not import the author's sampler or the common tree enumerator. Jobs ran from `/home/chris/code/eth-research/toy/r3/complete-review/`, with one BLAS thread, no subagents, and at most one test process at a time. Temporary scripts and logs are under `/tmp/`; no numerical files were added to the repository.
+I wrote fresh enumeration, conditioning and determinant code. I did not import the author's sampler or the common tree enumerator. The checks used unpublished working files in `complete-review`, with one BLAS thread. Temporary scripts and logs are unpublished working files.
 
 ### Exact-support affinity checks
 
@@ -324,15 +324,13 @@ An independent memoized recurrence gave n^(n-2) for n = 2 through 10. Separately
 
 Temporary artifacts:
 
-- `/tmp/r3-independent-review.py`
-- `/tmp/r3-extra-review.py`
-- `/tmp/r3-review-results.jsonl` (small exact-support checks)
-- `/tmp/r3-review-large.jsonl` (large direct-pinning checks; use the corrected constants in the next log)
-- `/tmp/r3-review-extra.jsonl` (nonempty z, partial sigma, final constants, scope and size checks)
+- `r3-independent-review.py` (unpublished working file)
+- `r3-extra-review.py` (unpublished working file)
+- `r3-review-results.jsonl` (unpublished working file) (small exact-support checks)
+- `r3-review-large.jsonl` (unpublished working file) (large direct-pinning checks; use the corrected constants in the next log)
+- `r3-review-extra.jsonl` (unpublished working file) (nonempty z, partial sigma, final constants, scope and size checks)
 
-No test jobs or browsers were left running.
-
-## Independent prior-art check
+## AI-assisted internal prior-art check
 
 I ran several deep web searches on November 4, 2026, using combinations of uniform spanning trees, complete graphs, labelled trees, fixed total variation, approximation, decomposable PCs/SPNs and multilinear formulas. I read the relevant primary-source statements rather than treating search snippets as evidence.
 

@@ -1,6 +1,6 @@
-# Adversarial review of R3 constants
+# AI-assisted internal review of R3 constants
 
-Reviewed 2026-11-04, America/Chicago. Claim reviewed: `/home/chris/code/eth-research/notes/approaches/R3-constants.md`. The claim, R2, and the paper source were read but not edited. No commit was made.
+Reviewed 2026-11-04, America/Chicago. Claim reviewed: `research-notes/r3/R3-constants.md`. The claim, R2, and the paper source were read but not edited.
 
 ## Verdict: HOLDS-WITH-FIXES — 8/10
 
@@ -159,9 +159,9 @@ Lemma L-b is valid for the fixed star-bit chain. A row or column norm bounds the
 
 For L ≥ 2 the stated caps in terms of L follow, provided the construction really has only the hubs mixed and the required balanced split. Equal a and b alone is not sufficient for balance if the two unspecified core sizes differ wildly; choose equal cores as the implementation does. The missing step is the uniform conversion from L to 1/h, not either probability lemma. The status-bit discussion remains a conjectural research direction, not a consequence of this review.
 
-## Independent numerical verification
+## AI-assisted internal numerical checks
 
-New code and outputs are confined to `/home/chris/code/eth-research/toy/r3/constants-review/`. I did not run or import the author's R3 scripts. The new tree enumerator uses its own union–find enumeration. Electrical calculations use **(L + J/n)⁻¹** on the mean-zero subspace, not a generic pseudoinverse with an unsafe cutoff. All commands used one BLAS/OpenMP thread and no parallel worker pool, well below the six-core limit. The first check run was launched in the background; all runs have finished.
+New code and outputs are confined to `constants-review` (unpublished working directory). I did not run or import the author's R3 scripts. The new tree enumerator uses its own union–find enumeration. Electrical calculations use **(L + J/n)⁻¹** on the mean-zero subspace, not a generic pseudoinverse with an unsafe cutoff. All commands used one BLAS/OpenMP thread.
 
 ### Exact finite graph checks
 
@@ -178,7 +178,7 @@ Results in `checks.json`:
 
 These finite checks supplement, not replace, the proof. They deliberately test independent W that need not be distance-3 separated, shared neighbours, contractions, rare conditioning configurations, and unequal degrees.
 
-### Independent arithmetic
+### AI-assisted internal arithmetic checks
 
 `arithmetic.py` uses exact rational h and h′ for floors and 65-digit arithmetic for the constants. It independently recomputes the Peierls polynomial through b = 300 and includes a conservative geometric tail. Its largest tail ratio among the following optima is below 0.38, so this cutoff is ample for the displayed digits. It searches the same 12-point h′ grid to make the table comparison like-for-like.
 
@@ -200,14 +200,14 @@ These finite checks supplement, not replace, the proof. They deliberately test i
 
 For the D = 6 Ramanujan row, the recomputed R2 log reciprocal is **115.626714**, matching the claimed comparison. I also checked the final P′ expression on D ∈ {3,4,6,10,64,256}, h ∈ {0.001,0.05,0.5,1}; it is conservative throughout. This grid is not offered as a proof of an infinite parameter statement.
 
-Reproduction:
+Historical commands using unpublished working files (not runnable from this repository):
 
 ```bash
-cd /home/chris/code/eth-research
+# Run from the unpublished working directory
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
-  uv run --with numpy --with networkx toy/r3/constants-review/review_checks.py
+  uv run --with numpy --with networkx review_checks.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-  uv run --with numpy --with networkx --with mpmath toy/r3/constants-review/arithmetic.py
+  uv run --with numpy --with networkx --with mpmath arithmetic.py
 ```
 
 ## Brief novelty check — November 4, 2026
@@ -224,9 +224,7 @@ I used deep web searches and read the relevant source passages, not just search 
 
 ## Files written
 
-* `/home/chris/code/eth-research/notes/approaches/R3-constants-review.md`
-* `/home/chris/code/eth-research/toy/r3/constants-review/review_checks.py`
-* `/home/chris/code/eth-research/toy/r3/constants-review/arithmetic.py`
+* `research-notes/r3/R3-constants-review.md`
+* `review_checks.py` (unpublished working file)
+* `arithmetic.py` (unpublished working file)
 * Their outputs: `checks.json`, `checks.log`, `arithmetic.json`, and `arithmetic.log`, all in that same review-only directory.
-
-I made no edits to the paper source, claim note, or original numerical scripts. The final working-tree check showed concurrent edits to original R3 numerical scripts and signed-circuit files; those edits are not mine and were not reverted. The claim note and paper source still match the versions reviewed. No browser was started and no background review process remains running.

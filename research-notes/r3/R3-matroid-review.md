@@ -1,4 +1,4 @@
-# Adversarial review of R3-matroid
+# AI-assisted internal review of R3-matroid
 
 Reviewed November 4, 2026, US Central time.
 
@@ -203,9 +203,9 @@ For U_(k,2k), the affinity matrix decomposes by j=|B intersect X|. Each nonzero 
 
 Thus beta squared is the largest hypergeometric atom. Across balanced splits it is Theta(k^(-1/2)), rather than exponentially small. This agrees with the smooth decomposable O(n^2) counting DP for the exact distribution. High Tutte connectivity alone cannot imply the desired exponential PC bound.
 
-## Independent numerical checks
+## AI-assisted internal numerical checks
 
-The checks ran with uv Python and NumPy/SciPy, one BLAS thread and at most one active numerical process at a time. Working directory was `/home/chris/code/eth-research/toy/r3/matroid-review/`. No script in the original numerical directory was imported or modified.
+The checks ran with uv Python and NumPy/SciPy and one BLAS thread. Working directory was `matroid-review` (unpublished working directory). No script in the original numerical directory was imported or modified.
 
 The small-matroid tester built bases with its own GF(2) rank routine, derived circuits and cocircuits independently, chose valid small frames in two cyclic orders, and used SVD of the exact enumerated probability matrix. It tested **every nontrivial split up to exchanging X and Y**, not just random or balanced splits. All generated compatible singleton and two-piece families were checked. These are finite checks, not exhaustive searches over all possible frames.
 
@@ -248,7 +248,7 @@ For 27 selected splits, including whole-block and within-block adversaries, spar
 
 One initial scratch-test assertion failed because **my tester reversed the two 2-sum interface choices** and predicted 4 * 12^3 * 16. The direct rank enumeration exposed that mistake. Correcting the tester gave the count above. This was not a failure of the claim's construction.
 
-Temporary implementations and logs are `/tmp/r3-matroid-adversary.py`, `/tmp/r3-matroid-adversary.log`, `/tmp/r3-fano-review.py` and `/tmp/r3-fano-review.log`. The mixed-type and uniform checks ran from stdin. No long-running numerical process remains. No repository code or paper source was changed.
+Temporary implementations and logs are `r3-matroid-adversary.py` (unpublished working file), `r3-matroid-adversary.log` (unpublished working file), `r3-fano-review.py` (unpublished working file) and `r3-fano-review.log` (unpublished working file). The mixed-type and uniform checks ran from stdin.
 
 ## Novelty check
 
@@ -269,5 +269,3 @@ The defensible novelty claim is the **all-matroid framed criterion for TV/affini
 ## Recommended disposition
 
 Keep A, B, C and the Fano application. Correct the directed-polynomial citation and the five minor statements above. Preserve the explicit distinction between local all-matroid bounds, global balanced-matroid bounds, and the still-open problem of obtaining useful global resistance bounds for non-graphic regular families.
-
-Only this review was written inside the repository. The paper-source tree was read only, and no commit was made.

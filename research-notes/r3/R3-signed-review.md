@@ -1,6 +1,6 @@
-# Adversarial review: R3 signed circuits
+# AI-assisted internal review of R3 signed circuits
 
-Reviewed November 4, 2026, America/Chicago. Target: `/home/chris/code/eth-research/notes/approaches/R3-signed.md`. The published-paper sources were read, not edited. No commits were made.
+Reviewed November 4, 2026, America/Chicago. Target: `research-notes/r3/R3-signed.md`. The published-paper sources were read, not edited.
 
 ## Verdict
 
@@ -217,15 +217,15 @@ because `sum q = 1` exactly. This identity remains true for signed q. Thus the p
 
 **Do not change λ to an arbitrary positive external scale.** That would break the identity and the theorem. For example, take any fixed nonnegative exact circuit for P and scale its output to `f=tP`, but incorrectly hold λ = 1 as t tends to zero. Then ε = (1−t)/2, whereas Z+/λ tends to zero. The claimed lower bound tends to the positive constant `1/(4s beta_*²)`. Under the note's actual definition λ = t, the normalized output is P, ε = 0, and this spurious counterexample disappears. The ratio Z+/λ is scale invariant and is genuinely an absolute-circuit-mass versus signed-mass ratio.
 
-## Independent numerical verification
+## AI-assisted internal numerical checks
 
 I wrote fresh code without importing or copying the author's numerical routines:
 
-* `/home/chris/code/eth-research/toy/r3/signed-review/check.py`
-* `/home/chris/code/eth-research/toy/r3/signed-review/results.json`
-* `/home/chris/code/eth-research/toy/r3/signed-review/run.log`
+* `check.py` (unpublished working file)
+* `results.json` (unpublished working file)
+* `run.log` (unpublished working file)
 
-Run: `uv run /home/chris/code/eth-research/toy/r3/signed-review/check.py`. Seed 20261104. BLAS/OpenMP threads were capped at one, below the six-core limit. The job ran in the background and completed. No browser or lingering worker was started.
+Historical command using an unpublished working file: `uv run check.py`. Seed 20261104. BLAS/OpenMP threads were capped at one.
 
 The code independently enumerates spanning trees by union-find, simple cycles by DFS, and maximum vertex-disjoint mixed-cycle packings by exact search. Ranks are computed modulo 1,000,003. A modular rank is a **certified lower bound** on real rank, so passing `rank_mod ≥ 2^nu` proves the tested real-rank inequality; I am not claiming modular rank always equals real rank.
 
@@ -289,4 +289,4 @@ Other inspected current records included the 2026 separation-rank/PC expressivit
 4. Add the denominator/range/root bookkeeping fixes.
 5. Keep A and C. Replace C2(ii)'s prose with the explicit cell invariant above if a reader is likely to doubt it.
 
-No failed numerical check was hidden. No modifications were made to the claim note, the author's scripts, or `/home/chris/code/eth-research/notes/paper-ust/`.
+No failed numerical check was hidden. No modifications were made to the claim note, the author's scripts, or `paper/`.
