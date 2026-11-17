@@ -1,6 +1,6 @@
 # R3: the complete graph K_n (unbounded degree)
 
-Written 2026-11-04 (CST). Helper for the "complete graph" direction. Scripts and logs are in `~/code/eth-research/toy/r3/complete/`.
+Written 2026-11-04 (CST). Helper for the "complete graph" direction. Scripts and logs (`toy/r3/complete/`) are unpublished working files, not in this repository.
 
 ## Verdict: PROVED. UST(K_n) costs 2^{Θ(n)} for TV-approximation by decomposable PCs (leaf arity ≤ 2M/3; reviewed in R3-complete-review.md, holds with fixes)
 
@@ -172,7 +172,7 @@ For S ⊆ V and v ∈ S, let f(S,v) be the indicator, over the variables E(S), o
 
 ## 4. Numerics (CHECKED NUMERICALLY)
 
-Scripts are in `toy/r3/complete/`. All runners exit non-zero if a worker fails. Single-threaded BLAS, at most 5 jobs.
+Scripts are in `toy/r3/complete/` (unpublished). All runners exit non-zero if a worker fails. Single-threaded BLAS.
 
 - **`kn_exact.py`** (runner `run_exact.sh`, logs `logs/exact-n*.jsonl`). Enumerates all n^{n−2} trees using `toy/r2/common.py` `enum_trees`, imported and not modified. It computes the following exactly:
   - β = ‖√μ‖_op;
@@ -231,6 +231,8 @@ Lemma 3 under real conditioning:
 
 ## Files
 
-- `notes/approaches/R3-complete.md` (this note)
+The scripts and logs listed here are unpublished working files, not in this repository.
+
+- `research-notes/r3/R3-complete.md` (this note)
 - `toy/r3/complete/kn_exact.py`, `kn_lemma.py`, `upper.py`, `constants.py`, `run_exact.sh`, `run_lemma.sh`
 - `toy/r3/complete/logs/` (`exact-n{6,7,8,9}.jsonl`, `lemma-n{40,60,100,150,200}.jsonl`, `*.status` = DONE)

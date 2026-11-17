@@ -1,8 +1,8 @@
 # R3: better constants for the vertex-star UST bound
 
-Direction: BETTER CONSTANTS for R2 (`notes/approaches/R2-highgirth.md`, Theorem B). Written 2026-11-04.
+Direction: BETTER CONSTANTS for R2 (`R2-highgirth.md`, an unpublished note, Theorem B). Written 2026-11-04.
 Reviewed (Sol 6.1, R3-constants-review.md): holds with fixes, 8/10, no fatal; fixes applied. The 1/h-power lower limit is conditional.
-Numerics are in `toy/r3/constants/`, and all logs are in `toy/r3/constants/logs/`.
+Numerics are in `toy/r3/constants/`, and all logs are in `toy/r3/constants/logs/`. Both are unpublished working files, not in this repository.
 
 **Verdict: PARTIAL.**
 * **Achieved and PROVED (fallback target).** The constant is now singly exponential in D, with no 1/h in the exponent. For every 2-connected G with max degree D ≥ 3 and edge expansion h, and every balanced split:
@@ -227,7 +227,7 @@ The constant c does not depend on ε. The bound stays exponential if (1−ε)² 
 
 ## 6. Old vs new: c(D,h)
 
-From `logs/constants_table.txt`, floating-point evaluated and independently reproduced to 65 digits by the reviewer, not interval-arithmetic certified. Entries are ln(1/c), so lower is better. "Best new" is max over regimes.
+From `logs/constants_table.txt`, floating-point evaluated and recomputed with 65-digit arithmetic in the AI-assisted internal review, not interval-arithmetic certified. Entries are ln(1/c), so lower is better. "Best new" is max over regimes.
 
 **Certified bounds on h, not attainable ranges.** For large N, cubic graphs have h ≤ 1/3 + o(1) and 4-regular graphs have h ≤ 4/5 + o(1). Both follow from h ≤ 2·bw/N and the Monien–Preis bisection bounds bw ≤ (1/6+o(1))N and (2/5+o(1))N (J. Discrete Algorithms 4 (2006) 475–498, https://doi.org/10.1016/j.jda.2005.12.009). Rows above these ceilings are omitted below and kept in the log, marked.
 
@@ -341,6 +341,6 @@ Not attempted within the time box.
 ## 10. Files
 
 * `toy/r3/constants/constants_table.py`: all closed forms and the optimised S(q). Output in `logs/constants_table.txt`.
-* `toy/r3/constants/exact_lemma2plus.py` with `run_exact.sh` (≤ 6 jobs, loud failures): exact Lemma 2+, Lemma S and Theorem-A chain checks. Logs `logs/exact-*.jsonl`.
+* `toy/r3/constants/exact_lemma2plus.py` with `run_exact.sh` (loud failures): exact Lemma 2+, Lemma S and Theorem-A chain checks. Logs `logs/exact-*.jsonl`.
 * `toy/r3/constants/spectral_regime.py`: N = 300 spectral-regime checks. `hub_gadget.py`: the limit gadget. Both are run by `run_medium.sh`; logs `logs/spec-*.jsonl` and `logs/hub-*.jsonl`.
 * `toy/r3/constants/count_check.py`: exhaustive check of Lemma C on 8 graphs (max count/bound = 1.000). Log `logs/count_check.txt`.

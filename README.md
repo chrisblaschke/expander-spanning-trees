@@ -44,7 +44,7 @@ tectonic expander-spanning-trees.tex
 
 ## Research notes
 
-`research-notes/` holds the working notes and their adversarial reviews from which version 2 was assembled, kept as a dated record. The paper is the reviewed, final form; where they differ, the paper wins.
+`research-notes/` holds the working notes and their AI-assisted internal reviews from which version 2 was assembled, kept as a dated record. The paper is the reviewed, final form; where they differ, the paper wins.
 
 ## Versions
 

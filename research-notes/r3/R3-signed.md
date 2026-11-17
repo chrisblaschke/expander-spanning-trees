@@ -1,6 +1,6 @@
 # R3: nonnegativity vs decomposability for the uniform spanning tree
 
-Written Nov 4 2026, about 01:30–03:15 CST. Scope: direction R3. Can small *decomposable* circuits that may *subtract* represent UST(G) on expanders, exactly or approximately? The v1 paper (`notes/paper-ust/`) was read and not modified. Scripts and logs are in `toy/r3/signed/`.
+Written Nov 4 2026, about 01:30–03:15 CST. Scope: direction R3. Can small *decomposable* circuits that may *subtract* represent UST(G) on expanders, exactly or approximately? The v1 paper was read and not modified. Scripts and logs (`toy/r3/signed/`) are unpublished working files, not in this repository.
 
 Labels: **[PROVED]** means a full proof is in this note, or a proof that reduces to a cited v1 lemma or a cited paper. **[CHECKED]** means exact small-graph numerics (§9). **[CONJ]** means conjectured. **[OPEN]** means open.
 
@@ -536,4 +536,4 @@ New, all under `toy/r3/signed/`:
 - logs: `logs/*.jsonl`, `logs/*.err`, `logs/all.done`, `logs/adv.done`, `logs/bw.done`, `logs/bw_circuit.done`, `logs_run_*.txt`.
 - `logs/multipair.jsonl` comes from direct `rank_blocks.py --lmax 4` runs on ladder9 and ladder12.
 
-`toy/r2/common.py` was imported and not modified. No other notes were edited. No commits were made.
+`toy/r2/common.py` was imported and not modified.

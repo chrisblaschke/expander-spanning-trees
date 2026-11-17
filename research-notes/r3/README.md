@@ -1,6 +1,6 @@
 # R3 research notes (November 4, 2026)
 
-These are working notes for follow-up results to the paper in this repository, posted here to timestamp them. They are not peer-reviewed. Each note was checked by one adversarial review, saved next to it as `*-review.md`, and that review's fixes were applied. The v2 paper will contain the polished versions.
+These are working notes for follow-up results to the paper in this repository, posted here to timestamp them. They are not peer-reviewed. Each note was checked by one AI-assisted internal review, saved next to it as `*-review.md`, and that review's fixes were applied. The v2 paper will contain the polished versions.
 
 | Note | Result | Review |
 |---|---|---|

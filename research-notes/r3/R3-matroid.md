@@ -1,6 +1,6 @@
 # R3: matroid generalization (uniform random basis)
 
-Written Nov 4 2026 (CST). Scope: the matroid direction of R3. The paper source `notes/paper-ust/` was read, not modified.
+Written Nov 4 2026 (CST). Scope: the matroid direction of R3. The paper source (`paper/` in this repository) was read, not modified.
 
 **Verdict: PROVED for the local (short-certificate) version, for every matroid. PROVED for the global (leverage) version for balanced matroids, which include regular matroids and binary matroids with no S8 minor. OPEN for non-balanced matroids in the global version (Lemma 6 is false for S8).**
 
@@ -57,7 +57,7 @@ So D_e ∩ K = {e, π(e)}. Dually, every cocircuit of size at least two has a fr
 
 ## 2. Imported tools (distribution-free)
 
-All of these are in `notes/paper-ust/sec-tools.tex`. None uses graph structure. They concern a distribution on {0,1}^E and a split.
+All of these are in `paper/sec-tools.tex`. None uses graph structure. They concern a distribution on {0,1}^E and a split.
 * lem:dpi: data processing under maps of each side.
 * lem:chain: adaptive chain rule. The kernels may depend on the joint past, and the pieces and their order are fixed in advance (rem:adaptive).
 * lem:two-by-two: if K(1,1)=0 then ‖√K‖² = (1+√(1−4K(0,1)K(1,0)))/2 ≤ 1 − K(0,1)K(1,0). The last step is the paper's √(1−x) ≤ 1−x/2.
@@ -247,7 +247,7 @@ So for non-balanced matroids, only the local Theorem A/C is available. A global 
 
 ## 11. Numerics (exact enumeration, `toy/r3/matroid/`)
 
-All runs are exact enumeration of bases, with probabilities in floating point. The runner `run_checks.sh` (6 workers) exits nonzero if any worker fails, and each script exits nonzero if a PROVED inequality is violated. All exited 0. Logs are in `toy/r3/matroid/logs/`.
+All runs are exact enumeration of bases, with probabilities in floating point. The runner `run_checks.sh` exits nonzero if any worker fails, and each script exits nonzero if a PROVED inequality is violated. All exited 0. Logs are in `toy/r3/matroid/logs/`. The scripts and logs are unpublished working files, not in this repository.
 
 | check | matroids | result |
 |---|---|---|
@@ -294,7 +294,7 @@ Negative dependence and matroids:
 
 ## 13. Files
 
-* `notes/approaches/R3-matroid.md` (this note).
+* `research-notes/r3/R3-matroid.md` (this note).
 * `toy/r3/matroid/matroid.py`: matroid toolkit; imports, and does not modify, `toy/r2/common.py`.
 * `toy/r3/matroid/tu_check.py`: TU-signing search.
 * `toy/r3/matroid/checks.py` and `toy/r3/matroid/run_checks.sh`: duality, Lemmas 3/5/6, split-level chain.
@@ -302,4 +302,4 @@ Negative dependence and matroids:
 * `toy/r3/matroid/f7deco.py`: §7.3.
 * `toy/r3/matroid/logs/`: all outputs.
 
-Reproduce: `cd toy/r3/matroid && ./run_checks.sh && uv run --with numpy --with scipy --with networkx python extra.py && uv run --with numpy --with scipy --with networkx python f7deco.py`.
+Historical command using the unpublished working files (not runnable from this repository): `cd toy/r3/matroid && ./run_checks.sh && uv run --with numpy --with scipy --with networkx python extra.py && uv run --with numpy --with scipy --with networkx python f7deco.py`.
