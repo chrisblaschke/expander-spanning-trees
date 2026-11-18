@@ -48,6 +48,7 @@ tectonic expander-spanning-trees.tex
 
 ## Versions
 
+- v2.0.1 (November 17, 2026): links updated to the current GitHub account; no change to the mathematics.
 - v2.0 (November 4, 2026): every 2-connected bounded-degree expander, complete and dense graphs, matroids, signed circuits.
 - v1.0 (November 3, 2026): expander prisms and squares.
 
